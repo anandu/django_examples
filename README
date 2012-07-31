@@ -1,1 +1,20 @@
 Django Hello World Project
+To setup, Please follow below instructions
+#-----------------------------------------#
+1. yum install gcc httpd-devel python-pip mod_wsgi
+2. pip install Django==1.4 django-annoying
+3. cd /var/www/
+4. git clone https://github.com/anandu/django_examples.git
+5. cd django_examples/django_hello_world
+6. python manage.py syncdb
+7. python manage.py test hello
+8. Create vhost.conf
+vim  /etc/httpd/conf.d/vhost.conf
+WSGIScriptAlias / /var/www/django_examples/django_hello_world/wsgi.py
+
+<Directory /var/www/django_examples/django-hello-world>
+    Order allow,deny
+    Allow from all
+</Directory>
+9. Restart apache
+/etc/init.d/httpd restart
