@@ -12,9 +12,12 @@ To setup, Please follow below instructions
 vim  /etc/httpd/conf.d/vhost.conf
 WSGIScriptAlias / /var/www/django_examples/django_hello_world/wsgi.py
 
-<Directory /var/www/django_examples/django-hello-world>
+<Directory /var/www/django_examples/django_hello_world>
     Order allow,deny
     Allow from all
 </Directory>
 9. Restart apache
+10. vim setting.py , remark line no.15 and uncomment line 16
+     15         'NAME': 'hello.sqlite3',                      # Or path to database file if using sqlite3.
+     16        # 'NAME': '/var/www/django_examples/django_hello_world/hello.sqlite3',  
 /etc/init.d/httpd restart
